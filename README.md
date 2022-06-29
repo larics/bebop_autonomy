@@ -20,3 +20,28 @@
 [![Build Status (ROS I,J,K) - TravisCI](https://travis-ci.org/AutonomyLab/bebop_autonomy.svg?branch=indigo-devel)](https://travis-ci.org/AutonomyLab/bebop_autonomy) [![Build Status (ROS I,J) - Semaphore](https://semaphoreci.com/api/v1/projects/11786233-d505-4d79-b27c-80c2742243a4/537552/badge.svg)](https://semaphoreci.com/mani_monaj/bebop_autonomy)
 
 Built against [parrot_arsdk](https://github.com/AutonomyLab/parrot_arsdk) 3.14.0p1
+
+## Melodic build
+
+In order to build `bebop_autonomy` on melodic, first install `parrot_arsdk`.
+It is available as binary package and use following command: 
+```
+sudo apt-get install ros-melodic-parrot-ardsk`
+```
+
+After that it's neccessary to add built libraries to the `LD_LIBRARY_PATH` as follows: 
+```
+echo LD_LIBRARY_PATH=/usr/local/lib/parrot_arsdk/:$LD_LIBRARY_PATH >> ~/.bashrc
+source ~/.bashrc	
+```
+
+After you've added `parrot_arsdk` libraries to LD_LIBRARY_PATH you need to build 
+`bebop_autonomy` with `catkin_make` as follows: 
+
+```
+cd <path_to_catkin_ws>
+catkin_make
+source devel/setup.bash
+```
+
+
